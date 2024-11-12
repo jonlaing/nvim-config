@@ -2,6 +2,8 @@ require("conform").setup({
   formatters_by_ft = {
     javascript = { "prettierd", "prettier", stop_after_first = true },
     typescript = { "prettierd", "prettier", stop_after_first = true },
+    javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+    typescriptreact = { "prettierd", "prettier", stop_after_first = true },
   },
   format_on_save = function(bufnr)
     -- Disable autoformat on certain filetypes
@@ -19,6 +21,6 @@ require("conform").setup({
       return
     end
     -- ...additional logic...
-    return { timeout_ms = 500, lsp_format = "fallback" }
+    return { timeout_ms = 500, lsp_format = "fallback", log_level = vim.log.levels.DEBUG }
   end,
 })
